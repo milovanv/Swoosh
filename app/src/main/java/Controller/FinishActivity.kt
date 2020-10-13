@@ -1,7 +1,7 @@
 package Controller
 
-import Utilities.EXTRA_LEAGUE
-import Utilities.EXTRA_SKILL
+import Model.Player
+import Utilities.EXTRA_PLAYER
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.proba.swoosh.R
@@ -12,9 +12,8 @@ class FinishActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_finish)
 
-        val league = intent.getStringExtra(EXTRA_LEAGUE)
-        val skill = intent.getStringExtra(EXTRA_SKILL)
+        val player = intent.getParcelableExtra<Player>(EXTRA_PLAYER)
 
-        searchLeagesText.text = "Looking for $league $skill league near you..."
+        searchLeagesText.text = "Looking for ${player?.league} ${player?.skill} league near you..."
     }
 }
